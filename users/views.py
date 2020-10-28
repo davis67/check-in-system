@@ -1,5 +1,7 @@
 from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
 from django.views import View
 from . import forms, models
 
@@ -28,3 +30,13 @@ class LoginView(View):
 def log_out(request):
     logout(request)
     return redirect(reverse("users:login"))
+
+
+class RegisterView(FormView):
+    template_name = "users/register.html"
+    form_class = forms.RegisterForm
+    success_url = reverse_lazy("core:home")
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_invalid(form)
