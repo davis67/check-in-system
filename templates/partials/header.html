@@ -1,0 +1,18 @@
+<header>
+    <a href="{% url "core:home" %}">Design Hub</a>
+    <ul>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="{% url "users:logout" %}">logout</a>
+        </li>
+        <li>
+            <a href="">Register New User</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="{% url "users:login" %}">login</a>
+        </li>
+        {% endif %}
+
+    </ul>
+</header>
