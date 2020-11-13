@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # PROJECT APPS
     'core.apps.CoreConfig',
     'users.apps.UsersConfig',
+    'visitors.apps.VisitorsConfig',
 ]
 
 MIDDLEWARE = [
