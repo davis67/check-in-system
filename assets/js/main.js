@@ -1,9 +1,11 @@
 import Vue from 'vue';
+
+import Sidebar from './components/app/Sidebar.vue'
 import App from './App.vue'
+
+Vue.component('app-sidebar', Sidebar)
+
 let app = document.getElementById('app')
-
-Vue.component('load-app-you', App)
-
 new Vue({
     el: "#app",
 })
